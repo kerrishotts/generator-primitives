@@ -1,0 +1,43 @@
+{
+    "name": "generator-primitives",
+    "version": "0.0.1",
+    "description": "Primitives for JavaScript Generators",
+    "main": "dist/generator-primitives.dist.js",
+    "browser": "dist/generator-primitives.dist.js",
+    "module": "index.js",
+    "scripts": {
+        "build:debug": "webpack -d",
+        "build:release": "webpack --define process.env.NODE_ENV=\"'production'\"",
+        "test": "nyc mocha",
+        "test:watch": "watch -p 'js/**/*.js' -c 'npm test'"
+    },
+    "author": "Kerri Shotts",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/chai": "^4.0.1",
+        "@types/mocha": "^2.2.41",
+        "chai": "^4.0.2",
+        "core-js": "^2.4.1",
+        "eslint": "^4.2.0",
+        "mocha": "^3.4.2",
+        "nyc": "^11.0.3",
+        "source-map-support": "^0.4.15",
+        "ts-loader": "^2.2.2",
+        "ts-node": "^3.2.0",
+        "tslint": "^5.5.0",
+        "typescript": "^2.4.1",
+        "watch-cli": "^0.2.1",
+        "webpack": "^3.1.0"
+    },
+    "dependencies": {
+        "tslib": "^1.7.1"
+    },
+    "nyc": {
+        "include": ["src/**/*.ts"],
+        "extension": [".ts"],
+        "require": ["ts-node/register"],
+        "reporter": ["text", "html", "lcov"],
+        "sourceMap": true,
+        "instrument": true
+    }
+}
